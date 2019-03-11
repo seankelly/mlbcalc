@@ -14,9 +14,14 @@ cp _deploy/site/* _deploy/pages
 
 cd _deploy/pages
 git add .
-if git commit --message "Deploy seankelly/mlbcalc@$revision" ; then
-    git push --quiet
+changes=$(git diff --shortstat 2>/dev/null | tail -n 1)
+if [[ $changes != "" ]]; then
+    if git commit --message "Deploy seankelly/mlbcalc@$revision" ; then
+        git push --quiet
+    else
+        echo >&2 "Failed to commit changes."
+        exit 1
+    fi
 else
-    echo >&2 "Failed to commit changes"
-    exit 1
+    echo "No changes to commit."
 fi
