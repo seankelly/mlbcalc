@@ -16,4 +16,7 @@ cd _deploy/pages
 git add .
 if git commit --message "Deploy seankelly/mlbcalc@$revision" ; then
     git push --quiet
+else
+    echo >&2 "Failed to commit changes"
+    exit 1
 fi
