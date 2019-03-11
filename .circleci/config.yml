@@ -12,7 +12,7 @@ jobs:
           command: npm install
       - run:
           name: Compile TypeScript files
-          command: tsc
+          command: ./node_modules/typescript/bin/tsc
       - run:
           name: Stage deploy
           command: ./stage-deploy.sh
