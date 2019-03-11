@@ -2,23 +2,17 @@
 
 set -eu
 
-if [[ $TRAVIS_BRANCH != master ]]; then
-    echo "Skipping deploy because $TRAVIS_BRANCH != master"
-    exit
-fi
-
 # Stage needed bits in a deploy directory.
-git config user.name "Deployment Bot (from Travis CI)"
-git config user.email "deploy@travis-ci.org"
+git config user.name "Deployment Bot (from CircleCI)"
+git config user.email "deploy@circleci.com"
 
 revision=$(git rev-parse --short=12 HEAD)
+remote_url=$(git config remote.origin.url)
 
-remote_url=$(git config remote.origin.url | sed -e "s/\(github.com\)/$GITHUB_TOKEN@\1/")
+git clone --quiet --branch gh-pages $remote_url _deploy/pages
+cp _deploy/site/* _deploy/pages
 
-git clone --quiet --branch gh-pages $remote_url _deploy
-cp index.html *.js _deploy
-
-cd _deploy
+cd _deploy/pages
 git add .
 if git commit --message "Deploy seankelly/mlbcalc@$revision" ; then
     git push --quiet
