@@ -25,6 +25,9 @@ jobs:
       - image: circleci/node:lts
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "c0:bf:83:1f:d6:95:2d:94:ea:8d:4b:d8:2b:2e:06:46"
       - attach_workspace:
           at: _deploy
       - run:
