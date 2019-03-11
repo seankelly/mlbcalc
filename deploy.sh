@@ -3,8 +3,8 @@
 set -eu
 
 # Stage needed bits in a deploy directory.
-git config user.name "Deployment Bot (from CircleCI)"
-git config user.email "deploy@circleci.com"
+git config --global user.name "Deployment Bot (from CircleCI)"
+git config --global user.email "deploy@circleci.com"
 
 revision=$(git rev-parse --short=12 HEAD)
 remote_url=$(git config remote.origin.url)
