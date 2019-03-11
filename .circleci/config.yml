@@ -1,0 +1,44 @@
+---
+version: 2
+
+jobs:
+  build:
+    docker:
+      image: circleci/node:lts
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Compile TypeScript files
+          command: tsc
+      - run:
+          name: Stage deploy
+          command: ./stage-deploy.sh
+      - persist_to_workspace:
+          root: _deploy
+          paths:
+            - site
+  deploy:
+    docker:
+      image: circleci/node:lts
+    steps:
+      - checkout
+      - attach_workspace:
+          at: _deploy
+      - run:
+          name: Deploy GitHub Pages
+          command: ./deploy.sh
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
