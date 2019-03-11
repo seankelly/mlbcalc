@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>MLB Contract Estimator</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style type="text/css">
+            th, td {
+                padding: 0.2em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <h1>MLB Contract Estimator</h1>
+            <form action="javascript:void(0)">
+                <div class="form-group">
+                    <input type="number" id="years" size="5" maxlength="3" min="1" max="25">
+                    <label for="years">Years</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="age" size="5" maxlength="3" min="20" max="50">
+                    <label for="age">Age in first year of contract</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="war" size="5" maxlength="3" min="-1" max="15" step="0.1">
+                    <label for="">Projected WAR for first year of contract</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="cost" size="5" maxlength="3" min="1" max="15" step="0.1">
+                    <label for="cost">Cost per WAR (millions)</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="inflation" size="5" maxlength="3" min="1" max="15" step="0.1">
+                    <label for="inflation">Inflation Percentage</label>
+                </div>
+                <button id="contract-calculate" type="submit" class="btn btn-primary">Calculate</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Age</th>
+                        <th>WAR</th>
+                        <th>$/WAR</th>
+                        <th>Estimated Contract</th>
+                    </tr>
+                </thead>
+                <tbody id="contract-results"></tbody>
+                <tfoot id="contract-summary"></tfoot>
+            </table>
+        </div>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="contract.js"></script>
+    </body>
+</html>
