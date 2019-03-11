@@ -4,7 +4,7 @@ version: 2
 jobs:
   build:
     docker:
-      image: circleci/node:lts
+      - image: circleci/node:lts
     steps:
       - checkout
       - run:
@@ -22,7 +22,7 @@ jobs:
             - site
   deploy:
     docker:
-      image: circleci/node:lts
+      - image: circleci/node:lts
     steps:
       - checkout
       - attach_workspace:
