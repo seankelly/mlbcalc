@@ -1,0 +1,17 @@
+---
+language: node_js
+node_js:
+  - "lts/*"
+
+install:
+  - npm install
+
+script:
+  - tsc
+
+deploy:
+  provider: script
+  skip-cleanup: true
+  script: ./deploy.sh
+  on:
+    branch: master
