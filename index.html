@@ -50,6 +50,46 @@
                 <tbody id="contract-results"></tbody>
                 <tfoot id="contract-summary"></tfoot>
             </table>
+            <hr>
+            <h1>Game Score</h1>
+            <h3>How to use</h3>
+            <p>Input the correct values from a box score line and click calculate. For the innings pitched, use X.1 or X.2 rather than X.3 or X.7.</p>
+            <form action="javascript:void(0)">
+                <div class="form-group">
+                    <input type="number" id="innings" size="5" maxlength="3" min="0" max="25" step="0.1">
+                    <label for="innings">Innings</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="hits" size="5" maxlength="3" min="0" max="40">
+                    <label for="hits">Hits</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="runs" size="5" maxlength="3" min="0" max="15">
+                    <label for="runs">Runs</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="earned-runs" size="5" maxlength="3" min="0" max="15">
+                    <label for="earned-runs">Earned Runs</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="walks" size="5" maxlength="3" min="0" max="15">
+                    <label for="walks">Walks</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="strikeouts" size="5" maxlength="3" min="0" max="25">
+                    <label for="strikeouts">Strikeouts</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="home-runs" size="5" maxlength="3" min="0" max="10">
+                    <label for="home-runs">Home runs</label>
+                </div>
+                <button id="game-score-calculate" type="submit" class="btn btn-primary">Calculate</button>
+                <table>
+                    <tr><th>Type</th><th>Score</th></tr>
+                    <tr><td>Game Score v1</td><td id="gs-v1"></td></tr>
+                    <tr><td>Game Score v2</td><td id="gs-v2"></td></tr>
+                </table>
+            </form>
         </div>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="contract.js"></script>
