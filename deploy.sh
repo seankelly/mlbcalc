@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -eu
+set -x
 
 # Stage needed bits in a deploy directory.
 git config --global user.name "Deployment Bot (from CircleCI)"
