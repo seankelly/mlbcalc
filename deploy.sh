@@ -15,7 +15,7 @@ cp _deploy/site/* _deploy/pages
 
 cd _deploy/pages
 git add .
-changes=$(git diff --shortstat 2>/dev/null | tail -n 1)
+changes=$(git diff --cached --shortstat 2>/dev/null | tail -n 1)
 if [[ $changes != "" ]]; then
     if git commit --message "Deploy seankelly/mlbcalc@$revision" ; then
         git push --quiet
