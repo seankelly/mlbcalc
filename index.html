@@ -90,9 +90,30 @@
                     <tr><td>Game Score v2</td><td id="gs-v2"></td></tr>
                 </table>
             </form>
+            <hr>
+            <h1>Pitch Count Estimator</h1>
+            <form action="javascript:void(0)">
+                <div class="form-group">
+                    <input type="number" id="pitch-count-batters-faced" size="5" maxlength="3" min="0" max="50">
+                    <label for="batters-faced">Batters faced</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="pitch-count-walks" size="5" maxlength="3" min="0" max="20">
+                    <label for="walks">Walks</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="pitch-count-strikeouts" size="5" maxlength="3" min="0" max="25">
+                    <label for="strikeouts">Strikeouts</label>
+                </div>
+                <button id="pitch-count-calculate" type="submit" class="btn btn-primary">Calculate</button>
+                <table>
+                    <tr><td><strong>Pitches:</strong></td><td id="pitch-count"></td></tr>
+                </table>
+            </form>
         </div>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="contract.js"></script>
         <script src="gamescore.js"></script>
+        <script src="pitchcount.js"></script>
     </body>
 </html>
