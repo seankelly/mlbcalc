@@ -8,5 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-      - run: npm install
-      - run: ./node_modules/typescript/bin/tsc
+      - name: Install dependencies
+        run: npm install
+      - name: Compile TypeScript files
+        run: ./node_modules/typescript/bin/tsc
+      - name: Stage deploy
+        run: ./stage-deploy.sh
