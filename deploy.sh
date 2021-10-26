@@ -8,9 +8,8 @@ git config --global user.name "Deployment Bot (from GitHub Actions)"
 git config --global user.email "deploy@mlbcalc.github.io"
 
 revision=$(git rev-parse --short=12 HEAD)
-remote_url=$(git config remote.origin.url)
 
-git clone --quiet --branch gh-pages $remote_url _deploy/pages
+git clone --quiet --branch gh-pages $GITHUB_REPOSITORY _deploy/pages
 cp _deploy/site/* _deploy/pages
 
 cd _deploy/pages
