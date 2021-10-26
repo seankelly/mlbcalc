@@ -9,7 +9,11 @@ git config --global user.email "deploy@mlbcalc.github.io"
 
 revision=$(git rev-parse --short=12 HEAD)
 
-git clone --quiet --branch gh-pages $GITHUB_REPOSITORY _deploy/pages
+set +x
+remote_url="https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+git clone --quiet --branch gh-pages "$remote_url" _deploy/pages
+set -x
+
 cp _deploy/site/* _deploy/pages
 
 cd _deploy/pages
