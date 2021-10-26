@@ -1,5 +1,7 @@
 #!/bin/bash
 
+GITHUB_TOKEN=$1
+
 set -eu
 set -x
 

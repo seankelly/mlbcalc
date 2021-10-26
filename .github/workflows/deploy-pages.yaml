@@ -15,4 +15,4 @@ jobs:
       - name: Stage deploy
         run: ./stage-deploy.sh
       - name: Deploy
-        run: ./deploy.sh
+        run: ./deploy.sh "${{ secrets.GITHUB_TOKEN }}"
