@@ -4,8 +4,8 @@ set -eu
 set -x
 
 # Stage needed bits in a deploy directory.
-git config --global user.name "Deployment Bot (from CircleCI)"
-git config --global user.email "deploy@circleci.com"
+git config --global user.name "Deployment Bot (from GitHub Actions)"
+git config --global user.email "deploy@mlbcalc.github.io"
 
 revision=$(git rev-parse --short=12 HEAD)
 remote_url=$(git config remote.origin.url)
