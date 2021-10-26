@@ -3,6 +3,10 @@
 GITHUB_TOKEN=$1
 
 set -eu
+
+remote_url="https://seankelly:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+git clone --quiet --branch gh-pages "$remote_url" _deploy/pages
+
 set -x
 
 # Stage needed bits in a deploy directory.
@@ -10,11 +14,6 @@ git config --global user.name "Deployment Bot (from GitHub Actions)"
 git config --global user.email "seankelly@users.noreply.github.com"
 
 revision=$(git rev-parse --short=12 HEAD)
-
-set +x
-remote_url="https://seankelly:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-git clone --quiet --branch gh-pages "$remote_url" _deploy/pages
-set -x
 
 cp _deploy/site/* _deploy/pages
 
